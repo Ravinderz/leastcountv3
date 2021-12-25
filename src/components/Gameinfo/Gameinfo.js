@@ -1,0 +1,80 @@
+import React, { useState } from 'react';
+import './Gameinfo.css';
+import { useNavigate } from 'react-router-dom';
+import { Form, Row, Col, Button} from 'react-bootstrap';
+
+function Gameinfo() {
+
+  let navigate = useNavigate();
+
+  let [gameScore, setGameScore] = useState(0);
+  let [gameName, setGameName] = useState("");
+  const [inputList, setInputList] = useState([{ name: "" }]);
+
+  const handleRemoveClick = index => {
+    const list = [...inputList];
+    list.splice(index, 1);
+    setInputList(list);
+  };
+
+  // handle click event of the Add button
+  const handleAddClick = () => {
+    setInputList([...inputList, { name: "" }]);
+  };
+
+  const handleInputChange = (e, index) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    const list = [...inputList];
+    list[index][name] = value;
+    setInputList(list);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let gameInfo = { gameScore: gameScore, gameName: gameName, players: inputList }
+    localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
+    navigate(`/scoreboard`);
+  }
+
+  return (
+    <div className="Gameinfo player-row">
+      <Form>
+        <Row>
+          <Col>
+            <Form.Control placeholder="Game Name" value={gameName} onChange={e => setGameName(e.target.value)} />
+          </Col>
+          <Col>
+            <Form.Control type="number" placeholder="Game Score" value={gameScore} onChange={e => setGameScore(e.target.value)} />
+          </Col>
+        </Row>
+        <Row>
+          {inputList.map((x, i) => {
+            return (
+              <div className='d-flex player-row'>
+                <Col>
+                  <Form.Control name="name"
+                    placeholder="Enter Name"
+                    value={x.name}
+                    key={x + i}
+                    onChange={e => handleInputChange(e, i)} />
+                </Col>
+                <div className="btn-box">
+                  {inputList.length !== 1 && <Button
+                    className="mr10"
+                    variant="danger"
+                    onClick={() => handleRemoveClick(i)}>Remove</Button>}
+                  {inputList.length - 1 === i && <Button variant="primary" onClick={e => handleAddClick(e)}>Add</Button>}
+                </div>
+              </div>
+            );
+          })}
+        </Row>
+      </Form>
+
+      <Button variant="warning" type="submit"  onClick={e => handleSubmit(e)}>Start</Button>
+    </div>
+  )
+};
+
+export default Gameinfo;

@@ -1,0 +1,11 @@
+.Gameinfo {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-row{
+    margin: 0 0.5em 0.5em 0;
+}
