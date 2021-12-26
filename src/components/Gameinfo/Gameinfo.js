@@ -39,8 +39,9 @@ function Gameinfo() {
 
   return (
     <div className="Gameinfo player-row">
-      <Form>
-        <Row>
+      <h2 className='mb-4'>Game Information</h2>
+      <Form className="width-40">
+        <Row className='mb-2'>
           <Col>
             <Form.Control placeholder="Game Name" value={gameName} onChange={e => setGameName(e.target.value)} />
           </Col>
@@ -51,8 +52,8 @@ function Gameinfo() {
         <Row>
           {inputList.map((x, i) => {
             return (
-              <div className='d-flex player-row'>
-                <Col>
+              <div className='d-flex player-row '>
+                <Col className='me-2'>
                   <Form.Control name="name"
                     placeholder="Enter Name"
                     value={x.name}
@@ -61,7 +62,8 @@ function Gameinfo() {
                 </Col>
                 <div className="btn-box">
                   {inputList.length !== 1 && <Button
-                    className="mr10"
+
+                    className="mr10 me-2"
                     variant="danger"
                     onClick={() => handleRemoveClick(i)}>Remove</Button>}
                   {inputList.length - 1 === i && <Button variant="primary" onClick={e => handleAddClick(e)}>Add</Button>}

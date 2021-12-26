@@ -47,12 +47,12 @@ function ScoreboardRow(props) {
           ))
         }
       </tr>
-      <Button variant="primary" type="submit" onClick={e => handleClick(e)}>
+      <Button variant="primary" type="submit" className='mt-3 me-3 float-end' onClick={e => handleClick(e)}>
         Add
       </Button>
-      <Button variant="primary" type="submit">
+      {/* <Button variant="primary" type="submit">
         Submit
-      </Button>
+      </Button> */}
     </>
   );
 }
