@@ -9,17 +9,21 @@ function Gameinfo() {
 
   let [gameScore, setGameScore] = useState(0);
   let [gameName, setGameName] = useState("");
+  let [bool, setBool] = useState(false);
+
   const [inputList, setInputList] = useState([{ name: "" }]);
 
   const handleRemoveClick = index => {
     const list = [...inputList];
     list.splice(index, 1);
     setInputList(list);
+    canContinue();
   };
 
   // handle click event of the Add button
   const handleAddClick = () => {
     setInputList([...inputList, { name: "" }]);
+    canContinue();
   };
 
   const handleInputChange = (e, index) => {
@@ -28,6 +32,7 @@ function Gameinfo() {
     const list = [...inputList];
     list[index][name] = value;
     setInputList(list);
+    canContinue();
   };
 
   const handleSubmit = (e) => {
@@ -35,6 +40,12 @@ function Gameinfo() {
     let gameInfo = { gameScore: gameScore, gameName: gameName, players: inputList }
     localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
     navigate(`/scoreboard`);
+  }
+
+  const canContinue = () => {
+    if((gameName && gameName !== null) && (gameScore && gameScore !== null) && (inputList && inputList.length >=2)){
+      setBool(true);
+    }
   }
 
   return (
@@ -73,8 +84,13 @@ function Gameinfo() {
           })}
         </Row>
       </Form>
-
-      <Button variant="warning" type="submit"  onClick={e => handleSubmit(e)}>Start</Button>
+          {
+            bool ?
+            <Button variant="warning" type="submit"  onClick={e => handleSubmit(e)}>Start</Button>
+            :
+            <Button variant="warning" type="submit" disabled onClick={e => handleSubmit(e)}>Start</Button>
+          }
+      
     </div>
   )
 };

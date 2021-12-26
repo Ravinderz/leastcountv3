@@ -37,7 +37,7 @@ return (
   <tr className='table-danger'>
     {
       total.map((val,i) => {
-        return <td className='all-border'>{val}</td>
+        return <td className='all-border text-center'>{val}</td>
       }) 
     }
   </tr>

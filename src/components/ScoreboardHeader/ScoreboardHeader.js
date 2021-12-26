@@ -9,7 +9,7 @@ function ScoreboardHeader(props) {
     <tr>
       {
         players.map((val, index) => (
-          <td key={val + index}>{val.name}</td>
+          <td key={val + index} className='text-center'>{val.name}</td>
         ))
       }
     </tr>

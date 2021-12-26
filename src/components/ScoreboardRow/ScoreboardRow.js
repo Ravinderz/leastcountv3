@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './ScoreboardRow.css';
 
 function ScoreboardRow(props) {
@@ -50,6 +50,7 @@ function ScoreboardRow(props) {
       <Button variant="primary" type="submit" className='mt-3 me-3 float-end' onClick={e => handleClick(e)}>
         Add
       </Button>
+      
       {/* <Button variant="primary" type="submit">
         Submit
       </Button> */}

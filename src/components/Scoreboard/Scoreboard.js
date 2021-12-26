@@ -22,11 +22,11 @@ function Scoreboard(props) {
   }
 
   return (
-    <div className="Scoreboard">
-      <Table striped bordered hover responsive className='table caption-top'>
+    <div className="Scoreboard d-flex justify-content-center flex-wrap">
+      <Table striped bordered hover responsive className='table caption-top flex-fill'>
       <caption>
-        <span className='float-start'>Game name : {gameInfo.gameName}</span>
-        <span className='float-end'>Game Score : {gameInfo.gameScore}</span>
+        <span className='float-start ms-3'>Game name : {gameInfo.gameName}</span>
+        <span className='float-end me-3'>Game Score : {gameInfo.gameScore}</span>
       </caption>
         <thead className='table-dark'>
           <ScoreboardHeader players={players} />
@@ -38,7 +38,7 @@ function Scoreboard(props) {
               return <tr key={i}>
                 {
                   row.map((col, j) => {
-                    return <td key={col + j}>
+                    return <td key={col + j} className='text-center'>
                       {col}
                     </td>
                   })
