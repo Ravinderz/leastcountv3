@@ -52,19 +52,19 @@ function Gameinfo() {
     <div className="Gameinfo player-row">
       <h2 className='mb-4'>Game Information</h2>
       <Form className="width-40">
-        <Row className='mb-2'>
-          <Col>
+        <Row className='mb-2 align-items-center'>
+          <Col className='mb-2'>
             <Form.Control placeholder="Game Name" value={gameName} onChange={e => setGameName(e.target.value)} />
           </Col>
-          <Col>
+          <Col className='mb-2'>
             <Form.Control type="number" placeholder="Game Score" value={gameScore} onChange={e => setGameScore(e.target.value)} />
           </Col>
         </Row>
-        <Row>
+        <Row className='align-items-center'>
           {inputList.map((x, i) => {
             return (
-              <div className='d-flex player-row '>
-                <Col className='me-2'>
+              <div className='d-flex player-row'>
+                <Col className='me-2 player-col'>
                   <Form.Control name="name"
                     placeholder="Enter Name"
                     value={x.name}
@@ -76,8 +76,8 @@ function Gameinfo() {
 
                     className="mr10 me-2"
                     variant="danger"
-                    onClick={() => handleRemoveClick(i)}>Remove</Button>}
-                  {inputList.length - 1 === i && <Button variant="primary" onClick={e => handleAddClick(e)}>Add</Button>}
+                    onClick={() => handleRemoveClick(i)}>-</Button>}
+                  {inputList.length - 1 === i && <Button variant="primary" onClick={e => handleAddClick(e)}>+</Button>}
                 </div>
               </div>
             );

@@ -1,1 +1,9 @@
 .ScoreboardRow {}
+
+.no-style{
+    background-color: none !important;
+    border-bottom-width: 0 ;
+    box-shadow: none !important;
+    border-style: none;
+    text-align: center;
+}

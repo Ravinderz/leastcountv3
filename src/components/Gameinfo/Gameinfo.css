@@ -8,9 +8,12 @@
 
 .player-row{
     margin: 0 0.5em 0.5em 0;
-    
+}
+
+.player-col{
+    min-width:208px;
 }
 
 .width-40{
-    max-width: 40%;
+    max-width: 80%;
 }

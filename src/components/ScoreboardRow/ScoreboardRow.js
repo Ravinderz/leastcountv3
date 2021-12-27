@@ -47,10 +47,14 @@ function ScoreboardRow(props) {
           ))
         }
       </tr>
-      <Button variant="primary" type="submit" className='mt-3 me-3 float-end' onClick={e => handleClick(e)}>
-        Add
-      </Button>
-      
+      <tr className='no-style'>
+        <td className='no-style' colSpan={2}>
+          <Button variant="primary" type="submit" className='mt-3 me-3' onClick={e => handleClick(e)}>
+            Add
+          </Button>
+        </td>
+      </tr>
+
       {/* <Button variant="primary" type="submit">
         Submit
       </Button> */}
