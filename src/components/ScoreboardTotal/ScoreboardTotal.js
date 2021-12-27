@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ScoreboardTotal.css';
 
-function ScoreboardTotal (props) {
+function ScoreboardTotal(props) {
 
-  let [total,setTotal] = useState([]);
+  let [total, setTotal] = useState([]);
   let scoreData = props.scoreData;
   let players = props.players;
   let arr = [];
@@ -23,25 +23,29 @@ function ScoreboardTotal (props) {
   const calculateTotal = () => {
     console.log("calculate");
     console.log(scoreData);
-    scoreData.map((row,i) => {
-      row.map((col,j) => {
-        arr[j] = total[j] + +col; 
+    scoreData.map((row, i) => {
+      row.map((col, j) => {
+        if (col && col === 'XX') {
+          arr[j] = total[j] + +0;
+        } else {
+          arr[j] = total[j] + +col;
+        }
       })
       setTotal(arr);
-    }) 
+      props.setTotal(arr);
+    })
   }
-
   console.log(total);
 
-return (
-  <tr className='table-danger'>
-    {
-      total.map((val,i) => {
-        return <td className='all-border text-center'>{val}</td>
-      }) 
-    }
-  </tr>
-);
+  return (
+    <tr className='table-danger' >
+      {
+        total.map((val, i) => {
+          return <td className='all-border text-center' key={val + i}>{val}</td>
+        })
+      }
+    </tr>
+  );
 }
 
 export default ScoreboardTotal;
