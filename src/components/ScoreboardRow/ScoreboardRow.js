@@ -26,8 +26,6 @@ function ScoreboardRow(props) {
   const updateScoreRow = (e, i) => {
 
     var key = e.key || e.charCode;
-    console.log(e);
-    console.log(key);
 
     if(key === 'Backspace' || key === 'Delete' || pressedKey === 'Backspace'){
       setPressedKey(key);
@@ -64,8 +62,6 @@ function ScoreboardRow(props) {
       props.dismissShow();
     }
     setRowScore(arr);
-
-    console.log(total);
   }
 
   const handleClick = (e) => {

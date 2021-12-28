@@ -21,8 +21,6 @@ function ScoreboardTotal(props) {
   }
 
   const calculateTotal = () => {
-    console.log("calculate");
-    console.log(scoreData);
     scoreData.map((row, i) => {
       row.map((col, j) => {
         if (col && col === 'XX') {
@@ -35,8 +33,6 @@ function ScoreboardTotal(props) {
       props.setTotal(arr);
     })
   }
-  console.log(total);
-
   return (
     <tr className='table-danger' >
       {

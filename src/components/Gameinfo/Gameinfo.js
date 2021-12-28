@@ -11,7 +11,7 @@ function Gameinfo() {
   let [gameName, setGameName] = useState("");
   let [bool, setBool] = useState(false);
 
-  const [inputList, setInputList] = useState([{ name: "" }]);
+  let [inputList, setInputList] = useState([{ name: "" }]);
 
   const handleRemoveClick = index => {
     const list = [...inputList];
@@ -37,7 +37,15 @@ function Gameinfo() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let gameInfo = { gameScore: gameScore, gameName: gameName, players: inputList }
+    let temp = [];
+    inputList.map((val,i) => {
+      if(val.name && val.name.trim().length > 0){
+        temp.push(val);
+      }
+    })
+    setInputList(temp);
+    let gameInfo = { gameScore: gameScore, gameName: gameName, players: temp }
+
     localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
     navigate(`/scoreboard`);
   }
