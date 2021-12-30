@@ -11,7 +11,7 @@ function Scoreboard(props) {
 
   let [players, setPlayers] = useState(gameInfoStore.players);
   console.log(players);
-  let [scoreData, setScoreData] = useState([[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1]]);
+  let [scoreData, setScoreData] = useState([]);
   let [gameInfo, setGameInfo] = useState(gameInfoStore);
   let [show, setShow] = useState(false);
   let [total, setTotal] = useState([]);
