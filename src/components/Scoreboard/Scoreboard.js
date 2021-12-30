@@ -11,7 +11,7 @@ function Scoreboard(props) {
 
   let [players, setPlayers] = useState(gameInfoStore.players);
   console.log(players);
-  let [scoreData, setScoreData] = useState([]);
+  let [scoreData, setScoreData] = useState([[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1]]);
   let [gameInfo, setGameInfo] = useState(gameInfoStore);
   let [show, setShow] = useState(false);
   let [total, setTotal] = useState([]);
@@ -50,7 +50,7 @@ function Scoreboard(props) {
           <span className='float-start ms-3'>Game name : {gameInfo.gameName}</span>
           <span className='float-end me-3'>Game Score : {gameInfo.gameScore}</span>
         </caption>
-        <thead className='table-dark'>
+        <thead className='table-dark table-header-sticky' scope="col">
           <ScoreboardHeader players={players} />
         </thead>
         <tbody>
