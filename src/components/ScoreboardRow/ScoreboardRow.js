@@ -72,7 +72,7 @@ function ScoreboardRow(props) {
 
   return (
     <>
-      <tr>
+      <tr key={Math.random()}>
         {
           players.map((val, index) => (
             <td xs="auto" key={val + index}>

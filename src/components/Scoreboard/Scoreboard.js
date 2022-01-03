@@ -10,7 +10,6 @@ function Scoreboard(props) {
   let gameInfoStore = JSON.parse(localStorage.getItem('gameInfo'));
 
   let [players, setPlayers] = useState(gameInfoStore.players);
-  console.log(players);
   let [scoreData, setScoreData] = useState([]);
   let [gameInfo, setGameInfo] = useState(gameInfoStore);
   let [show, setShow] = useState(false);
@@ -25,6 +24,7 @@ function Scoreboard(props) {
     let score = [...scoreData];
     score.push(data);
     setScoreData(score);
+    console.log(scoreData);
   }
 
   const updateShow = () => {

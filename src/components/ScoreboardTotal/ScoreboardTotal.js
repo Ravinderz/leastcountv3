@@ -10,12 +10,13 @@ function ScoreboardTotal(props) {
 
   useEffect(() => {
     initializeTotal();
+    console.log(scoreData);
     calculateTotal();
   }, [scoreData]);
 
   const initializeTotal = () => {
     players.forEach(element => {
-      arr.push(0);
+      arr.push(parseInt(0,10));
     });
     setTotal(arr);
   }
@@ -24,9 +25,9 @@ function ScoreboardTotal(props) {
     scoreData.map((row, i) => {
       row.map((col, j) => {
         if (col && col === 'XX') {
-          arr[j] = total[j] + +0;
+          arr[j] = parseInt(total[j],10) + parseInt(0,10);
         } else {
-          arr[j] = total[j] + +col;
+          arr[j] = parseInt(total[j],10) + parseInt(col,10);
         }
       })
       setTotal(arr);
@@ -34,7 +35,7 @@ function ScoreboardTotal(props) {
     })
   }
   return (
-    <tr className='table-danger' >
+    <tr className='table-danger' key={Math.random()}>
       {
         total.map((val, i) => {
           return <td className='all-border text-center' key={val + i}>{val}</td>
