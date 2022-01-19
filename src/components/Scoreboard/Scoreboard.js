@@ -86,16 +86,17 @@ function Scoreboard(props) {
     localStorage.setItem('players',JSON.stringify(arr));
     updateTotal();
     setDisplayModal(false);
+    localStorage.removeItem('players');
   }
 
   return (
     <div className="Scoreboard d-flex justify-content-center flex-wrap">
       <Table striped bordered hover responsive className='table caption-top flex-fill'>
         <caption>
-          <span className='float-start ms-3'>Game name : {gameInfo.gameName}</span>
-          <span className='float-end me-3'>Game Score : {gameInfo.gameScore}</span>
+          <span className='float-start ms-3 mt-3'>Game name : {gameInfo.gameName}</span>
+          <span className='float-end me-3 mt-3'>Game Score : {gameInfo.gameScore}</span>
           <span className='float-end me-3'>
-            <Button variant="primary" type="submit" className='mt-3 me-3 width-100' onClick={handleShow}>
+            <Button variant="primary" type="submit" className='me-3 width-100-percent' onClick={handleShow}>
               Add Player
             </Button>
           </span>

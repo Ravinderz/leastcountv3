@@ -20,6 +20,7 @@ function ScoreboardTotal(props,ref) {
         arr.push(parseInt(0,10));
       });
       setTotal(arr);
+      localStorage.removeItem('players');
     }
 
   }), [])
@@ -34,8 +35,6 @@ function ScoreboardTotal(props,ref) {
     }else{
       initializeTotal();
     }
-    
-    console.log(scoreData);
     calculateTotal();
   }, [scoreData]);
 
@@ -46,20 +45,7 @@ function ScoreboardTotal(props,ref) {
     setTotal(arr);
   }
 
-  const initializeNewTotal = () => {
-    let newPlayers = JSON.parse(localStorage.getItem('players'));
-    if(newPlayers && newPlayers.length > players.length){
-      newPlayers.forEach(element => {
-        arr.push(parseInt(0,10));
-      });
-    }
-      setTotal(arr);
-  }
-
   const calculateTotal = () => {
-    initializeNewTotal();
-    console.log(scoreData);
-    console.log(total);
     scoreData.map((row, i) => {
       row.map((col, j) => {
         if (col && col === 'XX') {
