@@ -18,7 +18,7 @@ function ScoreboardRow(props) {
 
   const initializeRowScore = () => {
     players.forEach(element => {
-      arr.push(0);
+      arr.push('');
     });
     setRowScore(arr);
   }
